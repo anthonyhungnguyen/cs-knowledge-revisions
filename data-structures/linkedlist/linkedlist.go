@@ -40,7 +40,7 @@ func (m *LinkedList) is_empty() bool {
 	return m.size == 0
 }
 
-func (m *LinkedList) value_at(index int) (int, error) {
+func (m *LinkedList) Value_at(index int) (int, error) {
 	idx_cnt := 0
 	tmp := m.head
 	for tmp != nil {
@@ -54,7 +54,7 @@ func (m *LinkedList) value_at(index int) (int, error) {
 	return 0, fmt.Errorf("Index out of range: %d", index)
 }
 
-func (m *LinkedList) pushed_front(value int) {
+func (m *LinkedList) Pushed_front(value int) {
 	new_node := Node{
 		value: value,
 		next:  m.head,
@@ -248,16 +248,16 @@ func main() {
 
 	fmt.Println("Size of linked list:", ll.get_size())
 	fmt.Println("Is empty:", ll.is_empty())
-	value_at_0, _ := ll.value_at(0)
-	value_at_1, _ := ll.value_at(1)
-	value_at_2, _ := ll.value_at(2)
-	fmt.Println("Value at index 0: ", value_at_0)
-	fmt.Println("Value at index 1: ", value_at_1)
-	fmt.Println("Value at index 2: ", value_at_2)
+	Value_at_0, _ := ll.Value_at(0)
+	Value_at_1, _ := ll.Value_at(1)
+	Value_at_2, _ := ll.Value_at(2)
+	fmt.Println("Value at index 0: ", Value_at_0)
+	fmt.Println("Value at index 1: ", Value_at_1)
+	fmt.Println("Value at index 2: ", Value_at_2)
 	ll.print()
-	ll.pushed_front(-1)
+	ll.Pushed_front(-1)
 	ll.print()
-	ll.pushed_front(-2)
+	ll.Pushed_front(-2)
 	ll.print()
 	ll.pop_front()
 	ll.print()
@@ -283,13 +283,13 @@ func main() {
 	ll.print()
 	// ll.erase(5) # Raise exception
 	// ll.print()
-	nvalue_at_0, _ := ll.value_n_from_end(0)
-	nvalue_at_size, _ := ll.value_n_from_end(ll.get_size() - 1)
-	nvalue_at_1, _ := ll.value_n_from_end(1)
+	nValue_at_0, _ := ll.value_n_from_end(0)
+	nValue_at_size, _ := ll.value_n_from_end(ll.get_size() - 1)
+	nValue_at_1, _ := ll.value_n_from_end(1)
 	_, error_ := ll.value_n_from_end(4)
-	fmt.Println("Value at 0th from the end: ", nvalue_at_0)
-	fmt.Println("Value at size th from the end: ", nvalue_at_size)
-	fmt.Println("Value at 1th from the end: ", nvalue_at_1)
+	fmt.Println("Value at 0th from the end: ", nValue_at_0)
+	fmt.Println("Value at size th from the end: ", nValue_at_size)
+	fmt.Println("Value at 1th from the end: ", nValue_at_1)
 	fmt.Println("Value at 4th from the end, caught error: ", error_)
 	fmt.Println("Reverse list: ")
 	ll.reverse()

@@ -1,0 +1,11 @@
+go 1.20
+
+use ./data-structures/queue
+
+use ./data-structures/linkedlist
+
+use ./data-structures/array
+
+use ./test/data-structures/queue_test
+
+use ./test/data-structures/linkedlist_test
