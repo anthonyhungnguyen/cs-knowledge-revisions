@@ -6,6 +6,10 @@ use ./data-structures/linkedlist
 
 use ./data-structures/array
 
+use ./data-structures/hashtable
+
 use ./test/data-structures/queue_test
 
 use ./test/data-structures/linkedlist_test
+
+use ./test/data-structures/hashtable_test
