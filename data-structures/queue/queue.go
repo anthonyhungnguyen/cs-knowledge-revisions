@@ -36,6 +36,11 @@ type QueueAsArray struct {
 	Cur  int
 }
 
+type QueueGeneric[T any] struct {
+	Data []T
+	Cur  int
+}
+
 func (m *QueueAsLinkedList) Print() {
 	if m == nil {
 		return
@@ -112,9 +117,9 @@ func (m *QueueAsArray) Enqueue(value int) {
 	m.Cur++
 }
 
-func (m *QueueAsArray) Dequeue() error {
+func (m *QueueAsArray) Dequeue() (int, error) {
 	if m.Cur == 0 {
-		return fmt.Errorf("empty queue")
+		return 0, fmt.Errorf("empty queue")
 	}
 	newQueue := make([]int, 5)
 	for i, v := range m.Data {
@@ -122,7 +127,21 @@ func (m *QueueAsArray) Dequeue() error {
 			newQueue[i-1] = v
 		}
 	}
+	itemToDequeue := m.Data[0]
 	m.Data = newQueue
 	m.Cur--
-	return nil
+	return itemToDequeue, nil
+}
+
+func (m *QueueGeneric[T]) Enqueue(item T) {
+	m.Data = append(m.Data, item)
+}
+
+func (m *QueueGeneric[T]) Dequeue() (*T, error) {
+	if len(m.Data) == 0 {
+		return nil, fmt.Errorf("cannot dequeue empty queue")
+	}
+	itemToDequeue := m.Data[0]
+	m.Data = m.Data[1:]
+	return &itemToDequeue, nil
 }

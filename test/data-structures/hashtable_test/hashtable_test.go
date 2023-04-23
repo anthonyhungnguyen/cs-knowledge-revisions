@@ -13,7 +13,7 @@ type HashTableSuite struct {
 	data hashtable.HashTable
 }
 
-func (suite *HashTableSuite) SetupTest() {
+func (suite *HashTableSuite) SetupSuite() {
 	suite.data = *hashtable.NewHashTable()
 }
 

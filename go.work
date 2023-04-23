@@ -2,14 +2,22 @@ go 1.20
 
 use ./data-structures/queue
 
+use ./data-structures/stack
+
 use ./data-structures/linkedlist
 
 use ./data-structures/array
 
 use ./data-structures/hashtable
 
+use ./data-structures/tree
+
 use ./test/data-structures/queue_test
 
 use ./test/data-structures/linkedlist_test
 
 use ./test/data-structures/hashtable_test
+
+use ./test/data-structures/tree_test
+
+use ./test/data-structures/stack_test
